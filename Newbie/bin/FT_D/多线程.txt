@@ -1,0 +1,43 @@
+﻿1.线程概念
+线程是一个程序的内部控制流
+比如你在一个类中可以start方式来启动一个线程
+同传统的类的执行不同,传统的方式是前一句执行完成后,才执行后面一句,线程被启动后,并不要等待线程完成后再执行main后面的代码.系统会虚拟出一片新的空间,供线程运行,后面的代码会继续执行
+		System.out.println("执行开始");
+		MyThread1 mt = new MyThread1();
+		mt.start();//启动一个线程
+		
+		
+		MyThread2 mt2 = new MyThread2();
+		mt2.start();//启动了一个线程
+	
+		System.out.println("执行结束");
+
+
+在这段代码中,我们启动了一个线程,不管这个线程MyThread1 内部执行的是什么,也不管这个线程MyThread1 什么时候执行完毕,当前程序流程会继续执行,也就是说,在mt.start()执行后,程序会继续执行其后的代码MyThread2 mt2 = new MyThread2();,但是这个时候mt内部的代码可以还在运行,但是他是运行在一片独立的空间
+
+
+2.线程开发的基本步骤
+A.extends Thread
+B.public void run()方法//线程体
+C.start启动线程
+
+
+3.线程开发的第二种实现
+A.implements Runnable
+B.实现run()方法
+C.构造一个Thread类对象,将Runnable实现作为目标参数
+D.调用Thrad类中start方法,启动线程
+
+
+
+3.资源同步问题
+很多时候,我们不会对系统中的线程调度进行干涉,所以,线程的调度就完全由系统自主来决定,那就不可避免的产生一种现象,就是不同资源(不同的线程类)来抢系统的资源,所以,一个线程在运行的过程中,可以还没有执行完全程序,其控制权就失去了
+加入synchronized关键字,保存某一个时刻只有一个线程来访问,而且必须要等到一个方法完整执行后,才释放控制权
+
+
+sychronized一般和wait方法及notify方法搭配使用
+如果你在一个方法中调用了wait()和notify()函数，那你一定要将此方法置为同步的，即synchronized，否则在编译时会报错，并得到一个莫名其妙的消息：“current thread not owner”（当前线程不是拥有者）
+
+
+
+

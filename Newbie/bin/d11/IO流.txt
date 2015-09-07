@@ -1,0 +1,31 @@
+﻿1.划分方式
+根据数据单元划分:字节流和字符流
+根据来源或目的地:输入流和输出流
+根据读取方式可分为:节点流和处理流
+
+2.节点流(输入流和输出流)
+输入流:超级类 InputStream
+常见子类:FileInputStream
+
+输出流超级类:OutputStream
+常见子类:FileOutputStream
+
+
+关键方法
+InputStream read()/close();
+OutputStream write()/close();
+
+注意:文件流最后需要被关闭
+
+
+常用到的字节流(低级流,节点流)
+FileInputStream
+BufferedInputStream
+DataInputStream
+InputStream
+
+常用到的字符流
+Reader
+BufferedReader
+FileReader
+InputStreamReader

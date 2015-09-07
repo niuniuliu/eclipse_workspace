@@ -1,0 +1,150 @@
+﻿1. 循环语句
+共分三类:
+for,while,do..while
+for循环
+
+		/**
+		 * for语句的分解
+		 * 1.int i=0;  //这句话只会被执行一次
+		 * 2.i<50是否满足条件,也就是是否为true的意思
+		 * 3.执行for{}内容
+		 * 4.i++;
+		 * 5.i<50
+		 * 6.执行{}内容
+		 * 7.i++ 
+		 */
+		for(int i=0;i<50;i++){
+			System.out.println(i);
+		}
+
+
+while循环
+
+语法表达:
+while(boolean){
+//循环体
+}
+
+注意:为避免死循环的情况,在循环体内一定要加上值的递增操作。 以便给while循环一个退出的条件
+		/**
+		 *在下面的语句中
+		 *1.先判断i<10是否为true
+		 *2.如果为true,执行while循环体内的语句
+		 *3.在循环体的执行中,改变i变量的值
+		 *4.判断i<10是否为true
+		 */
+		 
+		while(i<10){
+			//循环体
+			System.out.println(i);
+			i++;
+		}
+
+
+
+do...while();循环
+语法表示
+do{
+
+}while(boolean);
+比如:		
+		/**
+		 * 在这个过程中
+		 * 1 先打印m变量的值
+		 * 2.将m的值递增一个
+		 * 3.判断m<15是否为true
+		 */
+		int m=8;
+		do{
+			System.out.println(m);
+			m++;
+		}while(m<15);
+		
+for循环的变种
+		int k=2;//反正都是被执行一次
+		for(;k<8;){
+			System.out.println(k);			
+			k++;  //反正都是在出大括号前才被执行
+		}
+List<int> lstI = {}
+for(int i : lstI){
+
+}
+
+
+2.break语句的用法
+break语句可以使用在switch或者是循环中,break会中断switch获取循环语句的执行,从switch或者循环中跳出来
+		for(int k=2;k<6;k++){
+			if(k==4){
+				break;
+			}
+			System.out.println(k);
+		}
+
+
+3.continue用法
+表示中止当前的一次循环,并没有从循环中跳出,而break是结束整个循环
+		for(int k=2;k<6;k++){
+			if(k==3){
+				continue;
+			}
+			System.out.println(k);
+		}
+
+4.局部变量和全局变量的区别
+全局变量也称为属性,是直接被类所包含
+局部变量不能被称为属性,是直接被方法/语句块所包含
+比如:
+public class TestA {
+	//是类的成员：属性/全局变量
+	String s2 ;//变量声明
+	String str = ""; //变量声明并赋值（变量声明并初始化）
+	
+	
+	/**
+	 * 程序入口方法
+	 * @param args
+	 */
+	public static void main(String[] args){
+		//直接位于方法内部：局部变量
+		String s1;   //变量声明
+		String str1 = "test";//变量声明并初始化
+		System.out.println("dddddddddd");
+	}
+
+	
+}
+
+
+5. return的用法
+A.如果一个方法的返回类型为void,也就是它不需要返回任何值,则等同return;效果
+
+B.void表示不返回任何值,除void外,可以返回任何数据类型的值,比如int,String
+,类
+
+C.Return语句必须位于方法的最后一行
+
+D.如果有判断语言,一定要保证方法有返回值
+	public boolean count(int m,int n){
+		if(m>n){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+E.可以用来交回程序的访问控制权
+	public void test3(int m,int n){
+		if(m==0 || n==0){
+			return;    //中止程序的运行,回到调用点
+			//System.out.println("dddddddddddd");
+		}
+		System.out.println("对弹道弹道弹ｄｄｄｄｄ");
+	}
+
+6.API----String类的使用
+ char   charAt(int index); // 返回指定索引处的 char 值
+ int    length();  //返回此字符串的长度
+ int    indexOf(String str) //返回指定子字符串在此字符串中第一次出现处的索引。
+ String substring(int beginindex); //返回一个新的字符串，它是此字符串的一个子字符串。 
+

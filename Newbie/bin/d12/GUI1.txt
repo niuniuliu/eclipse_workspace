@@ -1,0 +1,51 @@
+﻿1.AWT:	抽象窗口工具集
+java的API中提供了一个名为awt的包(目录),其包下有很多的窗口工具类,比如Frame,比如Button等等
+
+2.所有的工具类都需要一些共同的方法,比如setLayout,setBounds等等,这些方法都已经被抽取到一个公共的类中,这个类被称为Component类
+
+
+3.java.awt包
+该包包含了所有的AWT窗口工具类
+
+
+4.容器
+容器是一种特殊的组件
+他具有组件的一切特征
+他可以容纳组件的加入
+
+5.Frame窗口
+Frame可以独立显示
+默认不显示,使用setVisible置为显示状态
+
+6.布局管理器
+BorderLayout
+FlowLayout
+GridLayout
+CardLayout
+
+7.事件处理
+ A.注册监听器
+	button.addActionListner(new ActionListener(){
+		public void actionPerformed(ActionEvent e){
+			((Button)e.getSource()).setLabel("abc");
+		}	
+ 	});
+ B.当某种事件发生
+        向监听器传送某种事件对象(ActionEvent).
+ C.监听器接到对象后对其进行处理
+
+8.Graphics 类的用法
+   paint()
+   repaint();
+
+9.*****Adapter
+	MouseAdapter  
+	KeyAdapter    
+
+
+
+
+
+
+
+

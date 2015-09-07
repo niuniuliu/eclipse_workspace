@@ -1,0 +1,131 @@
+﻿1.Collections
+
+   Map-----HashMap<key,value>
+
+2.三种情况是不能被创建的,也就是不能被new的
+A.接口
+B.抽象类
+C.私有构造器
+
+3.异常描述
+在java语言中,程序不正常的情况有两种
+A.出现系统内部错误:比如断电,内存不够等
+这种类型的错误是程序无法处理的
+B.程序异常:表示程序内部在运行时发生的编程错误,比如除数为0等等
+这种程序的运行时异常,是我们可以在代码中处理的
+
+4.异常的处理方式
+A.捕获异常
+B.声明抛弃异常
+
+5.异常的捕获
+使用try{}catch(){}方式来处理异常
+语法:
+try{
+//要保护的代码块
+
+}catch(异常类型 变量){
+//处理代码
+}
+
+
+6.异常类Exception中两个比较重要的方法
+getMessage()方法:getMessage获取具体的错误消息
+e.printStackTrace();//打印错误堆栈消息,从堆栈信息中可以看到具体的错误消息和错误出现的位置,这可以用来帮助我们定位并解决错误
+
+
+
+如果在try中的代码出现了异常,则try中出错位置后面的代码将不会被执行,直接跳到catch语句中继续执行
+如果try中的代码没有发生任何异常,那么,系统将不会执行catch块中的代码
+
+
+7.finally关键字
+finally表示强制执行,使用finally修饰的代码一定会到执行到,通常会把连接的关闭(文件流关闭,数据库关闭等)等必须执行的操作,放在finally语句中
+
+
+加入finally之后,不论try中的代码块是否会被执行到,finally中的代码都被强制
+执行
+
+finally必须依附于try关键词
+
+
+8.try{}catch(){}搭配
+try语句块后可以跟多个catch语句,不同的catch块中可以有不同的异常类型
+如果第一个异常类型不能匹配,系统验证第二一个异常类型是否匹配,如果匹配,会执行catch中的内容
+
+try{
+			Integer.parseInt(s);
+			int k = 5/0;
+		}catch(ArithmeticException e){
+			
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}catch(NumberFormatException e){
+			System.out.println("数字格式错误");
+		}
+
+9.异常抛出throws
+如果不想对异常进行处理,可以使用throws关键词对异常进行抛出
+语法
+public void test(int m,int n) throws NullPointerException
+
+
+注意:
+A.如果抛出的异常类型是RuntimeException或其子类,比如NullPointerException,在调用点可以不使用try{}catch语句来捕获异常
+
+B.如果抛出的异常类型为Exception或其子类(RuntimException除外),在调用点必须要使用try{}catch(){}语句来捕获,表示调用者未处理的错误,你得替他处理
+
+
+
+　　小结：（unchecked exception vs. checked exception）
+
+	unchecked exception： Error的子类和RuntimeException
+	checked exception:    其他的
+
+　　* Runtime exceptions：
+
+　　　在定义方法时不需要声明会抛出runtime exception；
+
+　　　在调用这个方法时不需要捕获这个runtime exception；
+
+　　　runtime exception是从java.lang.RuntimeException或java.lang.Error类衍生出来的。
+
+　　* Checked exceptions：
+
+　　　定义方法时必须声明所有可能会抛出的checked exception；
+
+　　　在调用这个方法时，必须捕获它的checked exception，不然就得把它的exception传递下去；
+
+　　　checked exception是从java.lang.Exception类衍生出来的。
+
+     逻辑上：
+	从逻辑的角度来说，checked exceptions和runtime exception是有不同的使用目的的。checked exception用来指示一种调用方能够	    
+直接处理的异常情况。而runtime exception则用来指示一种调用方本身无法处理或恢复的程序错误。
+
+
+
+
+10.throw关键字
+A,使用throw关键字可以抛出一个异常,异常被抛出后,其后面的代码将不在执行,中断当前方法的运行
+B.使用throw关键词,需要和throws搭配,throws表示声明一个方法有异常抛出,他要求调用者必须要try{}catch(){}或者继续抛出
+C.如果throw处理的异常类型为RuntimeException或其子类,则不适用B条
+D.throw不一定要用catch中,也可以用其他地方
+
+public void test3(int k) throws Exception{
+		if(k==0){
+			throw new Exception("年龄不能为0");
+		}		
+}
+
+
+
+11.异常声明抛弃的原则
+在子类中的重写方法,
+子类应该具有比父类更严格的异常处理(子类控制范围应该比父类小)
+对于异常的处理权,应该越收越紧
+
+12:自定义异常类:
+定义自己的异常处理类,这个类是你自己自定义的,不是算术运算的,也不是空指针异常,你可以把一些不是程序运行时的异常来看作为一种异常.
+
+在大型的J2EE开发中,我们都有分层的概念,分层是将系统中不同的类根据类所承担的职责来进行相关结构的划分,通常的情况下,程序员的工作是分工的,
+比如每个人负责其中某一种类型的处理,或者是某一个模块的处理,为了更方便的划分职责,我们通常会为某个模块或某种类型指定一个自定义异常类.

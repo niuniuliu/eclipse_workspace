@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1441554352790_1" label="Java_Learning" name="Java_Learning">
+<item elementID="=Newbie" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1441555139685_2" label="Learning_Java" name="Learning_Java"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1441554101041_0" label="Window Working Set" name="Aggregate for window 1441554101041"/>
+<mruList name="Java_Learning"/>
+</workingSetManager>

@@ -1,0 +1,118 @@
+﻿1.抽象类定义
+public abstract class TestA{
+
+}
+
+2.抽象类描述
+抽象类中可以有抽象方法,同类一样,都需要使用一个关键字abstract
+package org.nitpro.demo;
+
+public abstract class TestA {
+	String str;
+
+	public abstract void test();// 方法的声明
+
+	public void test2() {
+
+	}
+
+}
+
+
+3.抽象类使用
+因为抽象类中允许存在未实现的方法,所有系统会认为它是一个不完整的东西,语法上要求,该抽象类不能通过new的方法直接创建
+如果需要使用定义好的抽象类,我们必须声明一个新的类,来完成抽象类中未实现的方法,至于抽象类中已经实现的方法,子类就直接继承过来的
+
+
+
+4.抽象类的用途
+抽象类使用场合为:一件事情有多种处理办法,也就是说,一个方法将会多种不同的实现的时候,我们可以考虑使用抽象类
+
+
+5.抽象类的规则
+A.如果一个类中有一个方法为abstract,则该类必须声明为abstract
+B.一个抽象类中可以有多个抽象方法,也可以有多个方法实现
+C.一个抽象类中可以没有抽象方法,但是这个抽象类仍然不能直接通过new的方式来创建
+D.一个类中可以没有方法实现,全部为抽象方式是被允许的
+
+
+6.接口
+接口是一种特殊的抽象类,它要求定义接口中的方法都只能是方法的声明,而不能有任何的方法实现,并且,不需要使用abstract关键字
+
+声明方式
+public interface TestK{
+	public void test();
+}
+
+
+其作用同抽象类一样,都可以在传递参数,方法返回值,类型声明等时候来使用接口或抽象类替代实际的实现类出场,只是在实际的调用操作前,才创建"真身"对象
+
+规则:
+在接口的定义中,要使用到关键词interface,不再class的字眼
+方法的前面也不需要abstract关键词和{}符号
+在实现类中,abstract类使用的关键词是extends,而接口使用的是implements
+
+ICompute ic = new Compute();
+
+String sender(ICompute ic){
+	//....
+}
+
+Send send = new Send();
+send.sender(new Compute());
+  //理解接口回调的意义
+
+7.接口和抽象类的区别
+A.类之间是单继承的
+B.抽象类之间也可以使用extends来继承
+C.接口的实现可以多重的,也就是一个类,可以implements多个接口
+public class Test5 implements ITest1,ITest2
+D.接口之间是可以继承的
+public interface ITest2 extends ITest1
+E.同类的继承不同,接口之间的继承是可以为多重的
+F.在抽象类中可以使用implements来实现一个接口,而且不需要给出具体的方法实现,这是因为方法的声明在abstract类中是被允许存在的
+
+
+8.Collections
+
+  List:
+	Vector
+	ArrayList
+ 	 contains方法  -----与equals方法逻辑上相关
+	 remove方法    -----与equals方法逻辑上相关
+	LinkedList
+	 
+
+  Set:
+	HashSet
+	 add方法     (判断是否为同一个对象后才去操作add方法)       ----与equals方法和hashCode方法相关
+  理解ArrayList与LinkedList的区别 -----ArrayList检索快，LinkedList插入删除快
+
+      ArrayList与HashSet的区别  -----HashSet检索快
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

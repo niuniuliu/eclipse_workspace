@@ -1,0 +1,109 @@
+﻿1。重载：
+一个类中相同的方法名，不同的参数，相同的返回类型，被称为方法的重载
+在调用的过程中，系统会根据参数来判断该调用那个方法
+
+
+参数不同体现在以下几个方面
+A。参数个数不同
+B。参数类型不同
+C。参数顺序不同
+
+
+方法的重载：
+	int distance(){    
+		int d = (int)Math.sqrt(x*x + y*y);
+		return d;
+	}
+	
+	int distance(Point p) {
+		int d = (int)Math.sqrt((x-p.x)*(x-p.x )+ (y-p.y)*(y-p.y));
+		return d;
+	}
+
+构造子的重载：
+	public Circle() {
+		o = new Point(0, 0);
+		r = 1;
+	}
+
+	public Circle(Point p, int r1) {
+		o.x = p.x;
+		o.y = p.y;
+		r = r1;
+	}
+
+	public Circle(int ox1, int oy1, int r1) {
+		o = new Point(ox1, oy1);
+		r = r1;
+	}
+
+2. this关键字
+    构造函数的相互调用：
+    使用this关键字可以实现构造函数的相互调用
+    this();
+	
+    this.x = x; 
+
+    return this;
+
+
+
+
+3. static的用法
+	static方法只与类有关，跟 对象没有关系
+
+        static修饰的属性属于类所有,在内存区的表示是一片公共区域,不属于栈中某一个具体对象所持有
+   对公共区属性的改变,任何地方使用时,提取到的都是那个公共的属性
+	
+	使用情况：  static 方法与类当中的数据没有关系没有，不对类的成员变量进行操作
+		     （如果你给着方法一个输入的话，就可以得到一个输出）
+
+  static{...}
+   在构造函数前被执行
+   在代码块前面加上static修饰符,则该代码块只会被执行一次
+
+
+
+3。Calendar类
+
+      java.util.Calendar;
+
+      Calendar c = Calendar.getInstance();
+      c.set();    //设置时间日期的分量
+      
+      Date date = c.getTime();
+
+      c.get();    //获取时间日期分量
+      
+      c.getActualMaximum(Calendar.DATE);
+
+
+   SimpleDateFormat类
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	sdf.format(date);
+   
+   Random类
+	Random ran = new Random();
+	ran.nextInt(10);
+
+   String类
+	getBytes("UTF-8")
+	split(",")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
